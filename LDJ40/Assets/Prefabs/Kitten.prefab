@@ -54,7 +54,9 @@ GameObject:
   - component: {fileID: 61210587600441852}
   - component: {fileID: 114358053992318920}
   - component: {fileID: 114219530893927018}
-  m_Layer: 0
+  - component: {fileID: 114579770930796962}
+  - component: {fileID: 114896927819864440}
+  m_Layer: 9
   m_Name: Kitten
   m_TagString: Kitten
   m_Icon: {fileID: 0}
@@ -95,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1853489724737330}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.03, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4776487688812590}
@@ -199,5 +201,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  timeToWaitBetweenMoves: {x: 0.5, y: 1}
+  timeToWaitBetweenMoves: {x: 0.5, y: 5}
   timeToMove: {x: 1, y: 2}
+--- !u!114 &114579770930796962
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1853489724737330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a72b7b02f650d114eaff322b2243cb3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxComfortLevel: 100
+  comfortDecrease: 2
+  timeBetweenNeeds: 10
+  currentNeeds: 0
+--- !u!114 &114896927819864440
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1853489724737330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c3dc39f3d1c93a41bb2846efc9bd6df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

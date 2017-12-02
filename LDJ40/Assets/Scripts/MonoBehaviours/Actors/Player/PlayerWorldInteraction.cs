@@ -33,13 +33,13 @@ public class PlayerWorldInteraction : MonoBehaviour
         {
             // Only interact with the closest interactable
             Collider2D closestCollider = colliders[0];
-            float closestDistanceFromPlayer = Vector2.Distance(this.transform.position, colliders[0].transform.position);
+            float closestDistanceFromPlayer = Vector3.Distance(this.transform.position, colliders[0].transform.position);
 
             // Loop through all the colliders that we hit
             foreach (Collider2D coll in colliders)
             {
                 // This is used to store the distance of the current coll to the player
-                float currentDistanceFromPlayer = Vector2.Distance(this.transform.position, coll.transform.position);
+                float currentDistanceFromPlayer = Vector3.Distance(this.transform.position, coll.transform.position);
 
                 // Check if the current coll is closer then the closest distance yet
                 if (currentDistanceFromPlayer <= closestDistanceFromPlayer)
@@ -50,6 +50,7 @@ public class PlayerWorldInteraction : MonoBehaviour
                 }
             }
 
+            Debug.Log(closestCollider.name);
             // Now finally check if the closest collider is an interactible
             if (closestCollider.GetComponent<IInteractable>() != null)
             {

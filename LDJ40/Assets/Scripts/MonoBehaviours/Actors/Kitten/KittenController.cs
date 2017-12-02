@@ -17,6 +17,8 @@ public class KittenController : MonoBehaviour
     private Vector2 moveDirection;
     private Vector2 moveAmount;
 
+    private bool isCarried;
+
     //The motor of the kitten
     private CharacterMotor2D motor;
 
@@ -35,14 +37,21 @@ public class KittenController : MonoBehaviour
 
     private void Update()
     {
-        if(state.IsMoving)
+        if(isCarried)
         {
-            MoveKitten();
+            transform.position = PlayerInfo.instance.transform.position;
         }
         else
         {
-            WaitForNextMovement();
-        }
+            if (state.IsMoving)
+            {
+                MoveKitten();
+            }
+            else
+            {
+                WaitForNextMovement();
+            }
+        }   
     }
 
     private void WaitForNextMovement()
@@ -72,6 +81,11 @@ public class KittenController : MonoBehaviour
             state.IsMoving = false;
             timeToWaitBetweenMovesCounter = Random.Range(timeToWaitBetweenMoves.x, timeToWaitBetweenMoves.y);
         }
+    }
+
+    public void ToggleCarry()
+    {
+        isCarried = !isCarried;
     }
 
     public struct KittenMovementState
