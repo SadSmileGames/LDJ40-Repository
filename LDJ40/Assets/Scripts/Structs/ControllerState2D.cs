@@ -4,6 +4,13 @@
     public bool IsCollidingLeft { get; set; }
     public bool IsCollidingAbove { get; set; }
     public bool IsCollidingBelow { get; set; }
+    public bool IsColliding
+    {
+        get
+        {
+            return IsCollidingLeft || IsCollidingRight || IsCollidingBelow || IsCollidingAbove;
+        }
+    }
 
     public void Reset()
     {

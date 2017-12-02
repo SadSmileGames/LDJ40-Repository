@@ -5,11 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterMotor2D))]
 public class PlayerController : MonoBehaviour
 {
-    //The motor of the player
-    private CharacterMotor2D motor;
-
     //The movement speed of the player
     public float moveSpeed = 5f;
+
+    //The motor of the player
+    private CharacterMotor2D motor;
 
     private void Awake()
     {
@@ -18,16 +18,16 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        motor.Move(CalculateVelocity());
+        motor.Move(CalculateMoveAmount());
     }
 
-    private Vector2 CalculateVelocity()
+    private Vector2 CalculateMoveAmount()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        Vector2 velocity = new Vector2(horizontal, vertical).normalized * moveSpeed * Time.deltaTime;
+        Vector2 moveAmount = new Vector2(horizontal, vertical).normalized * moveSpeed * Time.deltaTime;
 
-        return velocity;
+        return moveAmount;
     }
 }

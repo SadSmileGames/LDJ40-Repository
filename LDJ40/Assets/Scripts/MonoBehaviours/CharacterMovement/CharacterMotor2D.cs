@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider2D))]
 public class CharacterMotor2D : RaycastController2D
 {
     // A reference to the struct which contains all the information about the collision state of the CC2D
