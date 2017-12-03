@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Kitten
+  - Bathtub
   layers:
   - Default
   - TransparentFX

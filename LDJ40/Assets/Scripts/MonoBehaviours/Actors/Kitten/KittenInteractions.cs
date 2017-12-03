@@ -22,10 +22,6 @@ public class KittenInteractions : MonoBehaviour, IInteractable
             {
                 needs.AddComfort(50f);
             }
-            else
-            {
-                needs.AddComfort(-25f);
-            }
         }
     }
 
