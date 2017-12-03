@@ -45,7 +45,7 @@ public class KittenInteractions : MonoBehaviour, IInteractable
             needs.AddComfort(50f);
         }
 
-        if(needs.currentNeeds == KittenNeeds.Needs.None)
+        if(needs.currentNeeds == KittenNeeds.Needs.None || needs.currentNeeds == KittenNeeds.Needs.Cleaning)
         {
             if(PlayerInfo.instance.isHoldingKitten)
                 controller.SetCarryStatus(false);

@@ -2,10 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class KittenNeeds : MonoBehaviour
 {
     public enum Needs { None, Hungry, Cleaning, Play };
+    public Needs currentNeeds;
+
+    public Text currentNeedsText;
 
     public float maxComfortLevel = 100f;
     public float comfortDecrease = 2f;
@@ -17,7 +21,6 @@ public class KittenNeeds : MonoBehaviour
     private float currentComfortLevel = 100f;
     private float currentComfortDecrease = 2f;
 
-    public Needs currentNeeds;
 
     private void Start()
     {
@@ -40,12 +43,14 @@ public class KittenNeeds : MonoBehaviour
         if(currentComfortLevel <= 50 && currentNeeds == Needs.None)
         {
             currentNeeds = (Needs)UnityEngine.Random.Range(1, 4);
+            currentNeedsText.text = currentNeeds.ToString();
             currentComfortDecrease = comfortDecrease * 0.25f;
         }
 
         if(currentComfortLevel > 50 && currentNeeds != Needs.None)
         {
             currentNeeds = Needs.None;
+            currentNeedsText.text = "";
             currentComfortDecrease = comfortDecrease;
         }
     }

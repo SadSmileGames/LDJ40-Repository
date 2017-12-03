@@ -268,7 +268,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: NEED
+  m_Text: 
 --- !u!114 &114193425199425782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -350,10 +350,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a72b7b02f650d114eaff322b2243cb3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentNeeds: 0
+  currentNeedsText: {fileID: 114100776674848266}
   maxComfortLevel: 100
   comfortDecrease: 2
   timeBetweenNeeds: 10
-  currentNeeds: 0
 --- !u!114 &114896927819864440
 MonoBehaviour:
   m_ObjectHideFlags: 1
