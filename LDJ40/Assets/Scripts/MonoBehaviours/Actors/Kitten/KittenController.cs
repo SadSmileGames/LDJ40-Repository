@@ -17,7 +17,7 @@ public class KittenController : MonoBehaviour
     private Vector2 moveDirection;
     private Vector2 moveAmount;
 
-    private bool isCarried;
+    private bool isCarried = false;
 
     //The motor of the kitten
     private CharacterMotor2D motor;
@@ -39,7 +39,11 @@ public class KittenController : MonoBehaviour
     {
         if(isCarried)
         {
-            transform.position = PlayerInfo.instance.transform.position;
+            Vector3 mousePos = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x,
+                                             Camera.main.ScreenToWorldPoint(Input.mousePosition).y,
+                                             transform.position.z);
+
+            motor.Move(mousePos - transform.position);
         }
         else
         {
@@ -83,9 +87,10 @@ public class KittenController : MonoBehaviour
         }
     }
 
-    public void ToggleCarry()
+    public void SetCarryStatus(bool a)
     {
-        isCarried = !isCarried;
+        isCarried = a;
+        Debug.Log(isCarried);
     }
 
     public struct KittenMovementState

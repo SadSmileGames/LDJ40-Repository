@@ -5,12 +5,18 @@ using UnityEngine;
 public class PlayerInfo : MonoBehaviour
 {
     public static PlayerInfo instance;
+    public bool hasFood = false;
+    public bool isHoldingKitten = false;
 
-    public Transform itemHolder;
-    public bool isHoldingFood;
-
-    private void Awake()
+    private void Start()
     {
         instance = this;
+        Debug.Log(instance.gameObject);
+    }
+
+    public void GiveFood()
+    {
+        if (!hasFood)
+            hasFood = true;
     }
 }

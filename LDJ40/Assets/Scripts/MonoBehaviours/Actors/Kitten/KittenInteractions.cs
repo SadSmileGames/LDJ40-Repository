@@ -33,9 +33,10 @@ public class KittenInteractions : MonoBehaviour, IInteractable
     {
         if(needs.currentNeeds == KittenNeeds.Needs.Hungry)
         {
-            if(PlayerInfo.instance.isHoldingFood)
+            if(PlayerInfo.instance.hasFood)
             {
                 needs.AddComfort(50f);
+                PlayerInfo.instance.hasFood = false;
             }
         }
 
@@ -46,7 +47,12 @@ public class KittenInteractions : MonoBehaviour, IInteractable
 
         if(needs.currentNeeds == KittenNeeds.Needs.None)
         {
-            controller.ToggleCarry();
+            if(PlayerInfo.instance.isHoldingKitten)
+                controller.SetCarryStatus(false);
+            else
+                controller.SetCarryStatus(true);
+
+            PlayerInfo.instance.isHoldingKitten = !PlayerInfo.instance.isHoldingKitten;    
         }
     }
 }
