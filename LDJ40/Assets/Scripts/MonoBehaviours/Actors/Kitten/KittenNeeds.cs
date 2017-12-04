@@ -9,6 +9,8 @@ public class KittenNeeds : MonoBehaviour
     public enum Needs { None, Hungry, Cleaning, Play };
     public Needs currentNeeds;
 
+    public GameObject angryKitten;
+
     public Slider stressBar;
     public Text currentNeedsText;
 
@@ -49,6 +51,7 @@ public class KittenNeeds : MonoBehaviour
 
         if (currentComfortLevel <= 0)
         {
+            Instantiate(angryKitten, transform.position, Quaternion.identity);
             GameManager.kittensLeft--;
             Destroy(this.gameObject);
         }

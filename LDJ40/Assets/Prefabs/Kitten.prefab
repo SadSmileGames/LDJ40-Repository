@@ -74,22 +74,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1298527239248948
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4626631845761552}
-  - component: {fileID: 212030018824172132}
-  m_Layer: 0
-  m_Name: Kitten
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1415261159959354
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,6 +87,23 @@ GameObject:
   - component: {fileID: 114193425199425782}
   m_Layer: 5
   m_Name: KittenUICanvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1725325074636652
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4207973069798648}
+  - component: {fileID: 212047697599404744}
+  - component: {fileID: 95411888456976872}
+  m_Layer: 0
+  m_Name: KittenGraphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,12 +163,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4626631845761552
+--- !u!4 &4207973069798648
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1298527239248948}
+  m_GameObject: {fileID: 1725325074636652}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -185,7 +186,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4626631845761552}
+  - {fileID: 4207973069798648}
   m_Father: {fileID: 4808541412706796}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -229,6 +230,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &95411888456976872
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1725325074636652}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cdf81100ca3a9b34bbe1e40419a8810b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114086457514656630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -289,7 +307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -419,13 +437,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentNeeds: 0
+  angryKitten: {fileID: 1356644666734322, guid: 94f6805bd82e43a45a79277fd04ee9ef,
+    type: 2}
   stressBar: {fileID: 114086457514656630}
   currentNeedsText: {fileID: 114100776674848266}
   stressedColor: {r: 0.9607844, g: 0, b: 0.17890461, a: 1}
   relaxedColor: {r: 0.627451, g: 0.9607844, b: 0, a: 1}
   maxComfortLevel: 100
   comfortDecrease: 5
-  timeBetweenNeeds: 10
+  timeBetweenNeeds: 5
 --- !u!114 &114896927819864440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -464,12 +484,12 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!212 &212030018824172132
+--- !u!212 &212047697599404744
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1298527239248948}
+  m_GameObject: {fileID: 1725325074636652}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -497,13 +517,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: e9da267ed4921834c9d2e92b0cfdf3a7, type: 3}
+  m_SortingOrder: 12
+  m_Sprite: {fileID: 21300016, guid: 1d8f29a7bc88d2c42b17eac16b089b0f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

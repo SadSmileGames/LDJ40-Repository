@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        totalKittens = 1;
+        kittensLeft = 3;
         timeBetweenKittenSpawnsCounter = timeBetweenKittenSpawns.y; 
     }
 
@@ -51,7 +54,7 @@ public class GameManager : MonoBehaviour
     private void CheckForKittensLeft()
     {
         if (kittensLeft == 0)
-            Debug.Log("GAME OVER");
+            SceneManager.LoadScene("GameOver");
 
         kittensLeftImages[kittensLeft].SetActive(false);
     }
