@@ -6,22 +6,28 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static int totalKittens = 1;
+    public static int kittensLeft = 3;
 
     public Vector2 timeBetweenKittenSpawns;
     private float timeBetweenKittenSpawnsCounter;
 
-    //I HATE MYSELF-
+    public Text totalKittensText;
+
     public GameObject optionalPanel;
     public GameObject forcedPanel;
 
+    public GameObject[] kittensLeftImages;
+
     private void Start()
     {
-        timeBetweenKittenSpawnsCounter = timeBetweenKittenSpawns.x; 
+        timeBetweenKittenSpawnsCounter = timeBetweenKittenSpawns.y; 
     }
 
     private void Update()
     {
         CountUntilKittenSpawn();
+        CheckForKittensLeft();
+        totalKittensText.text = totalKittens.ToString();
     }
 
     private void CountUntilKittenSpawn()
@@ -42,10 +48,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void CheckForKittensLeft()
+    {
+        if (kittensLeft == 0)
+            Debug.Log("GAME OVER");
+
+        kittensLeftImages[kittensLeft].SetActive(false);
+    }
+
     public void ResumeGame()
     {
         Time.timeScale = 1f;
         optionalPanel.SetActive(false);
         forcedPanel.SetActive(false);
     }
+
+   
 }

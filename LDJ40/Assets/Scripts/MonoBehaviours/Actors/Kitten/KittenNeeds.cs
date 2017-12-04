@@ -9,7 +9,11 @@ public class KittenNeeds : MonoBehaviour
     public enum Needs { None, Hungry, Cleaning, Play };
     public Needs currentNeeds;
 
+    public Slider stressBar;
     public Text currentNeedsText;
+
+    public Color stressedColor;
+    public Color relaxedColor;
 
     public float maxComfortLevel = 100f;
     public float comfortDecrease = 2f;
@@ -26,6 +30,7 @@ public class KittenNeeds : MonoBehaviour
     {
         currentComfortLevel = maxComfortLevel;
         currentComfortDecrease = comfortDecrease;
+        stressBar.value = maxComfortLevel;
     }
 
     private void Update()
@@ -40,11 +45,20 @@ public class KittenNeeds : MonoBehaviour
 
     private void CheckComfortLevel()
     {
-        if(currentComfortLevel <= 50 && currentNeeds == Needs.None)
+        stressBar.value = currentComfortLevel;
+
+        if (currentComfortLevel <= 0)
+        {
+            GameManager.kittensLeft--;
+            Destroy(this.gameObject);
+        }
+
+        if (currentComfortLevel <= 50 && currentNeeds == Needs.None)
         {
             currentNeeds = (Needs)UnityEngine.Random.Range(1, 4);
             currentNeedsText.text = currentNeeds.ToString();
-            currentComfortDecrease = comfortDecrease * 0.25f;
+            currentComfortDecrease = comfortDecrease * 1.5f;
+            stressBar.fillRect.GetComponent<Image>().color = stressedColor;
         }
 
         if(currentComfortLevel > 50 && currentNeeds != Needs.None)
@@ -52,7 +66,13 @@ public class KittenNeeds : MonoBehaviour
             currentNeeds = Needs.None;
             currentNeedsText.text = "";
             currentComfortDecrease = comfortDecrease;
-        }
+            stressBar.fillRect.GetComponent<Image>().color = relaxedColor;
+        }   
+    }
+
+    private void DestroyThis()
+    {
+        
     }
 
     private void DecreaseComfortLevel()

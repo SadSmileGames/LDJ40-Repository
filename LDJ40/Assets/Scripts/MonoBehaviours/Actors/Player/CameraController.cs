@@ -7,7 +7,8 @@ public class CameraController : MonoBehaviour
     public float panSpeed = 20f;
     public float panBorderThickness = 10f;
 
-    public Vector2 panLimit;
+    public Vector2 panLimitX;
+    public Vector2 panLimitY;
 
     private void LateUpdate()
     {
@@ -38,8 +39,8 @@ public class CameraController : MonoBehaviour
             pos.x -= panSpeed * Time.deltaTime;
         }
 
-        pos.x = Mathf.Clamp(pos.x, -panLimit.x, panLimit.x);
-        pos.y = Mathf.Clamp(pos.y, -panLimit.y, panLimit.y);
+        pos.x = Mathf.Clamp(pos.x, panLimitX.x, panLimitX.y);
+        pos.y = Mathf.Clamp(pos.y, panLimitY.x, panLimitY.y);
 
         transform.position = pos;
     }
